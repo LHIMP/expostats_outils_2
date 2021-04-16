@@ -23,7 +23,7 @@ library(shinyBS)
 library(shinycssloaders)
 library(colourpicker)
 
-source("langParams.R")
+source('langParams.R')
 
 #### for the data entry zone
 
@@ -39,7 +39,7 @@ inputTextarea <- function(inputId, value="", nrows, ncols) {
                   rows = nrows,
                   cols = ncols,
                   as.character(value),
-                  '40.1\tworker-10\n28.5\tworker-2\n48.5\tworker-9\n87\tworker-1\n6.73\tworker-5\n105\tworker-7\n64.6\tworker-1\n87.5\tworker-6\n6.38\tworker-2\n68.6\tworker-6\n41.4\tworker-10\n92.2\tworker-8\n19.1\tworker-2\n67.9\tworker-8\n345\tworker-1\n63.7\tworker-4\n17.6\tworker-3\n89.1\tworker-7\n59.8\tworker-9\n87.4\tworker-1\n89.2\tworker-4\n82.3\tworker-8\n12.6\tworker-5\n198\tworker-7\n25.1\tworker-3')
+                  '40.1\tworker-10\n28.5\tworker-2\n48.5\tworker-9\n87\tworker-1\n6.73\tworker-5\n105\tworker-7\n64.6\tworker-1\n87.5\tworker-6\n6.38\tworker-2\n68.6\tworker-6\n41.4\tworker-10\n92.2\tworker-8\n19.1\tworker-2\n67.9\tworker-8\n345\tworker-1\n63.7\tworker-4\n17.6\tworker-3\n89.1\tworker-7\n59.8\tworker-9\n87.4\tworker-1\n89.2\tworker-4\n82.3\tworker-8\n12.6\tworker-5\n198\tworker-7\n25.1\tworker-3\n33.3\tworker-2\n111.1\tworker-7')
   )
 }
 

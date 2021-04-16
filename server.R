@@ -29,7 +29,6 @@ library(here)
 
 ######################     scripts to source
 
-
 ##SEG SPECIFIC FUNCTIONS
 
 
@@ -39,26 +38,25 @@ source(here("scripts", "BetweenWorker", "Data formatting functions_B.R"))
 
 source(here("scripts", "BetweenWorker", "Descriptive graphs functions_B.R"))
 
-source(here("scripts","BetweenWorker", "Bayesian engine functions_B.R"))
+source(here("scripts", "BetweenWorker", "Bayesian engine functions_B.R"))
 
-source(here("scripts","BetweenWorker", "Main graph functions_B.R"))
+source(here("scripts", "BetweenWorker", "Main graph functions_B.R"))
 
-source(here("scripts","BetweenWorker", "Numerical output functions_B.R"))
+source(here("scripts", "BetweenWorker", "Numerical output functions_B.R"))
 
 ##COMMON
 
-source(here("scripts","Common", "Simple censored imputation functions.R"))
+source(here("scripts", "Common", "Simple censored imputation functions.R"))
 
-source(here("scripts","Common", "Descriptive numerical output functions.R"))
+source(here("scripts", "Common", "Descriptive numerical output functions.R"))
 
-source(here("scripts","Common", "Descriptive graphs functions.R"))
+source(here("scripts", "Common", "Descriptive graphs functions.R"))
 
-source(here("scripts","Common", "Bayesian engine functions.R"))
+source(here("scripts", "Common", "Bayesian engine functions.R"))
 
-source(here("scripts","Common", "Numerical output functions.R"))
+source(here("scripts", "Common", "Numerical output functions.R"))
 
-source(here("scripts","Common", "Main graph functions.R"))
-
+source(here("scripts", "Common", "Main graph functions.R"))
 
 ####################   SHINY STUFF
 
@@ -147,7 +145,7 @@ shinyServer(function(input, output, session) {
           
           names(Freq.table) <-c("nom","n")
           
-          return(as.character(Freq.table$nom[Freq.table$n>2]))
+          return(as.character(Freq.table$nom[Freq.table$n>3]))
           
         })
         
@@ -244,6 +242,8 @@ shinyServer(function(input, output, session) {
               gett('res.desc.12'),
               gett('res.desc.13')
               )
+
+					colnames(result) <- c(gett('parameter'), gett('value'))
           
           return(result)
           
@@ -1210,7 +1210,7 @@ shinyServer(function(input, output, session) {
                           
                           Z <- bayesian.analysis()
                           
-                          W <- ListOfWorkers.full()
+                          W <- ListOfWorkers()
                           
                           p1 <-boxplot.by.worker(data.formatted = X , 
                                             data.simply.imputed = Y , 
@@ -1901,7 +1901,8 @@ shinyServer(function(input, output, session) {
                                      data.simply.imputed = Y , 
                                      bayesian.output.B = Z , 
                                      worker.list = W,
-                                     boxplot.work.1=gett("boxplot.work.1"),
+                                     boxplot.work.1="ALLEZ",
+           #                          boxplot.work.1=gett("boxplot.work.1"),
                                      boxplot.work.2=gett("boxplot.work.2"),
                                      boxplot.work.3=gett("boxplot.work.3")
                                      )
